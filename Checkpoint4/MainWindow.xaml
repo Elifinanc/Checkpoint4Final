@@ -1,0 +1,99 @@
+﻿<Window x:Class="Checkpoint4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Checkpoint4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#FF141414" OpacityMask="Black">
+        <Border CornerRadius="20" Margin="10" Background="Black">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18*"/>
+                    <ColumnDefinition Width="101*"/>
+                    <ColumnDefinition Width="268*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Vertical" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="401" Width="174" Grid.RowSpan="3" Margin="0,0,0,-0.6" Grid.ColumnSpan="2" >
+                    <Label x:Name="FirstStepLabel" Content="STEP 1 : Select a filter :" Foreground="#FFBC9F13" Margin="0,69,10.4,0" FontWeight="Bold" FontFamily="Arial Black"/>
+                    <Label x:Name="ByShowComboBoxLabel" Content="By Show" Foreground="#FFFBFBFB" Margin="19,10,55,0" Width="100" FontFamily="Bradley Hand ITC"/>
+                    <ComboBox x:Name="ShowListComboBox" Margin="19,0,26.8,19" />
+                    <Label x:Name="ByPeriodDatePicker" Content="By Period" Foreground="#FFFBFBFB" Margin="16.5,5,57.5,0" Width="100" FontFamily="Bradley Hand ITC" Height="25.764"/>
+                    <Label x:Name="StartDateDatePicker" HorizontalAlignment="Left" Content="select a start date:" Foreground="#FFFBFBFB" Margin="43.7,0,0,0" Width="103.5" Height="22.76" FontFamily="Bradley Hand ITC"/>
+                    <DatePicker Height="25" Margin="19,0,26.8,0" Name="StartDatePicker" VerticalAlignment="Top" />
+                    <Label x:Name="EndDateDatePicker" HorizontalAlignment="Left" Content="select a end date:" Foreground="#FFFBFBFB" Margin="52.5,0,0,0" Width="94.7" Height="22.76" FontFamily="Bradley Hand ITC"/>
+                    <DatePicker Height="25" Margin="19,0,26.8,0" Name="EndDatePicker" VerticalAlignment="Top" />
+                    <StackPanel Orientation="Horizontal" Margin="0,25,10,0">
+                        <Button x:Name="Reset_btn" Click="Reset_btn_Click" Content="Reset" Width="58" Margin="20,10,0,0" Background="#FF282828" Foreground="White" />
+                        <Button Name="Research_btn" Click="Research_btn_Click" Content="Research" Width="58" Margin="10,10,20,0" Background="#FF282828" Foreground="White"></Button>
+                    </StackPanel>
+                    <Button Name="MyOrders_btn" Click="MyOrders_btn_Click" Content="See My Orders" Margin="20,10,28,0" Foreground="White" Background="#FF282828"/>
+                </StackPanel>
+
+                <Grid Background="Black" Margin="137.7,4,22.6,6" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="36*"/>
+                        <ColumnDefinition Width="341*"/>
+                        <ColumnDefinition Width="201*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="66*"></RowDefinition>
+                        <RowDefinition Height="195*"></RowDefinition>
+                        <RowDefinition Height="130*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="1">
+                        <StackPanel Orientation="Horizontal">
+                            <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,0,-0.4" Width="302">
+                            <Grid.Background>
+                                <ImageBrush ImageSource="Ressources/logo.png" AlignmentX="Center" AlignmentY="Top" Viewport="0.08, 0, 0.9, 1"/>
+                            </Grid.Background>
+                        </Grid>
+                        <Grid Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,0,-0.4" Width="239" HorizontalAlignment="Right">
+                            <Button Name="SignInsButton" Content="Sign In" Click="SignInsButton_Click" BorderBrush="#FF030917" FontFamily="Yu Gothic UI Semibold" Margin="0,0,-20,25" Width="60" Height="20" Background="#FFBC9F13"/>
+                            <Button Name="NewUserButton" Content="New User" Click="NewUserButton_Click" BorderBrush="#FF030917" FontFamily="Yu Gothic UI Semibold" Margin="0,0,-160,25" Width="60" Height="20" Background="#FFBC9F13"/>
+                        </Grid>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2">
+                        <Label x:Name="secondStepLabel" Content="STEP 2 : Choose a presentation in the list below and click on 'Order Now' :" Foreground="#FFBC9F13" Margin="2,0,33.6,287.6" FontWeight="Bold" FontFamily="Arial Black" RenderTransformOrigin="0.5,0.5" />
+                        <ListView Margin="0,38,-0.4,9.6" Background="#FF948641" Name="PresentationInfosListView" Foreground="BlanchedAlmond" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False" >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Show Name" Width="160" DisplayMemberBinding="{Binding ShowName}"/>
+                                    <GridViewColumn Header="Presentation Date" Width="150" DisplayMemberBinding="{Binding PresentationDate}"/>
+                                    <GridViewColumn Header="Available Seats Count" Width="150" DisplayMemberBinding="{Binding AvailableSeatsCount}"/>
+                                    <GridViewColumn>
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Name="OrderNowButton" Content="Order Now" Click="OrderNowButton_Click"
+                                                        Background="#FF2C293A" Foreground="White" BorderBrush="#FF030917" FontFamily="Yu Gothic UI Semibold" Height="25"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem" >
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="IsSelected" Value="True"/>
+                                            <Setter Property="Foreground" Value="Black" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,34 @@
+﻿<Window x:Class="Checkpoint4.OrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Checkpoint4"
+        mc:Ignorable="d"
+        Title="OrderWindow" Height="450" Width="450">
+    <Grid Background="#FF282828">
+        <Border CornerRadius="20" Margin="20" Background="Black">
+            <Grid>
+                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="107,-8,107.2,244">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Ressources/hhh.png" AlignmentX="Center" AlignmentY="Top" Viewport="0.18, 0, 0.65, 0.90"/>
+                    </Grid.Background>
+                </Grid>
+                <StackPanel Margin="20 60 20 0">
+                    <Label Content="You have chosen the Show named :" HorizontalAlignment="Center" FontFamily="Bradley Hand ITC" FontSize="15" Foreground="#FFFBFBFB" Margin="69,17,68.2,0"/>
+                    <TextBlock x:Name="ShowNameTextBlock" Height="25" Margin="70,0,70.2,0" Background="#FF948641" Text="{Binding Name}"></TextBlock>
+                    <Label Content="the presentation date is :" HorizontalAlignment="Center" FontFamily="Bradley Hand ITC" FontSize="15" Foreground="#FFFBFBFB" Margin="94,0,95.2,0" Width="174"/>
+                    <TextBlock x:Name="PresentationDateTextBlock" Height="25" Margin="70,0,70.2,0" Background="#FF948641"/>
+                    <Label Content="available seats quantity is :" HorizontalAlignment="Center" FontFamily="Bradley Hand ITC" FontSize="15" Foreground="#FFFBFBFB" Margin="94,0,95.2,0" Width="174"/>
+                    <TextBlock x:Name="AvailableSeatsTextBlock" Height="25" Margin="70,0,70.2,0" Background="#FF948641"/>
+                    <Label Content="please enter the seats count to order :" HorizontalAlignment="Center" FontFamily="Bradley Hand ITC" FontSize="15" Foreground="#FFFBFBFB" Margin="64,0,64.2,0" />
+                    <TextBox Name="SeatsQuantityTextBox" Height="25" Margin="70,0,70.2,0" PreviewTextInput="NumberValidationTextBox"></TextBox>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="btnValidate" Content="Validate" Margin="90,20,0,10" Height="25" Width="80" Background="#FF282828" Click="BtnValidate_Click" IsDefault="true" Foreground="White"/>
+                        <Button x:Name="btnCancel" Content="Cancel" Margin="10,20,90,10" Height="25" Width="80" Background="#FF282828" Click="BtnCancel_Click" IsDefault="true" Foreground="White"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,53 @@
+﻿<Window x:Class="Checkpoint4.UserOrdersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Checkpoint4"
+        mc:Ignorable="d"
+        Title="UserOrdersWindow" Height="450" Width="450">
+    <Grid Background="#FF141414">
+        <Border CornerRadius="20" Margin="20" Background="Black">
+            <Grid Margin="10,0,10.2,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.RowSpan="2" Margin="111,-16,116,16" >
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Ressources/ggg.png" AlignmentX="Center" AlignmentY="Top" Viewport="0.18, 0, 0.65, 0.90"/>
+                    </Grid.Background>
+                </Grid>
+                <Grid Grid.Row="1" Grid.RowSpan="1">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="111,8,111.2,15.6">
+                        <Label x:Name="IdentifyLabel" Content="You are :" Foreground="#FFFBFBFB" Margin="19,5,0,10.4" Width="51" FontFamily="Bradley Hand ITC"/>
+                        <TextBlock x:Name="UserNameTextBlock" Margin="10,10,13.2,10.4" Background="#FF948641" Text="{Binding Name}" Width="67"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1" Grid.RowSpan="1">
+                    <Label x:Name="OrderListLabel" Content="You can see your orders in the list below:" Foreground="#FFFBFBFB" FontFamily="Bradley Hand ITC" HorizontalAlignment="Center" Margin="84,40,84.2,-8.4" Width="215"/>
+                </Grid>
+                <Grid Grid.Row="2" Grid.RowSpan="4" VerticalAlignment="Center" Height="260" Margin="0,0,0,60">
+                    <ListView Margin="0,65,0.2,0" Background="#FF948641" Name="PresentationInfosListView" Foreground="BlanchedAlmond" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Show Name" Width="122" DisplayMemberBinding="{Binding ShowName}"/>
+                                <GridViewColumn Header="Presentation Date" Width="122" DisplayMemberBinding="{Binding PresentationDate}"/>
+                                <GridViewColumn Header="Reserved Seats" Width="122" DisplayMemberBinding="{Binding ReservedSeats}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+                <Grid Grid.Row="5" Grid.RowSpan="1">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="btnClose" Content="Close" Height="25" Width="80" Background="#FF282828" Click="btnClose_Click" IsDefault="true" Margin="0,15,0,10" Foreground="White"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

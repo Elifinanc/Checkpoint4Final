@@ -1,0 +1,30 @@
+﻿<Window x:Class="Checkpoint4.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Checkpoint4"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="450">
+    <Grid Background="#FF141414">
+        <Border CornerRadius="20" Margin="20" Background="Black">
+            <Grid>
+                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Margin="26,7,188.2,229">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Ressources/fff.png" AlignmentX="Center" AlignmentY="Top" Viewport="0.18, 0, 0.65, 0.90"/>
+                    </Grid.Background>
+                </Grid>
+                <StackPanel x:Name="LoginPanel" Margin="60" >
+                    <Label Content="Login" HorizontalAlignment="Right" FontSize="20" Foreground="#FFBC9F13" FontWeight="Bold" FontFamily="Arial Black"/>
+                    <Separator/>
+                    <Label Content="Username" HorizontalAlignment="Left" FontSize="15" Foreground="#FFFBFBFB" FontFamily="Bradley Hand ITC"/>
+                    <TextBox x:Name="UserNameTextBox" Height="25"></TextBox>
+                    <Label Content="Password" HorizontalAlignment="Left" FontSize="15" Foreground="#FFFBFBFB" FontFamily="Bradley Hand ITC"/>
+                    <PasswordBox Name="PasswordTextBox" Height="25"></PasswordBox>
+                    <Button Name="btnEnter" Content="Enter" Margin="80 30 80 10" Height="25" Width="80" Background="#FF282828" Click="btnEnter_Click" IsDefault="true" Foreground="White"/>
+                    <Button Name="btnCancel" Content="Cancel" Margin="80 0 80 0" Height="25" Width="80" Background="#FF282828" Click="btnCancel_Click" IsDefault="true" Foreground="White"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
